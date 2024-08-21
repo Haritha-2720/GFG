@@ -42,21 +42,26 @@ class Array {
 
 // } Driver Code Ends
 
+
 class Solution {
-    // Function to find the leaders in the array.
+  
     static ArrayList<Integer> leaders(int n, int arr[]) {
         
-        ArrayList<Integer> mapp = new ArrayList<>();
-        int maxi=arr[n-1];
-        mapp.add(maxi);
+        ArrayList<Integer> store = new ArrayList<>();
         
-        for(int i=n-2; i>=0;i--){
-            if(arr[i] >= maxi){
+        int maxi = -1;
+        
+        for(int i=n-1;i>=0;i--){
+            
+            if(arr[i]>=maxi){
+                
+                store.add(arr[i]);
+                
                 maxi=arr[i];
-                mapp.add(maxi);
             }
         }
-        Collections.reverse(mapp);
-        return mapp;
+        
+        Collections.reverse(store);
+        return store;
     }
 }
