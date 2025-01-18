@@ -24,23 +24,20 @@ class GFG {
 
 class Solution {
     static int evenlyDivides(int n) {
+        int count = 0; // Initialize counter
+        int temp = n;  // Make a copy of n for processing digits
         
-        int count =0;
-        
-        int temp =n;
-        
-        while(temp>0){
+        while (temp > 0) {
+            int store = temp % 10; // Extract the last digit
             
-            int split = temp%10;
-            temp=temp/10;
-            
-            if(split>0 && n%split==0){
+            // Check if store is non-zero and n is divisible by store
+            if (store != 0 && n % store == 0) {
                 count++;
             }
-               
-        
+            
+            temp = temp / 10; // Remove the last digit
         }
-        return count;
         
+        return count; // Return the total count
     }
 }
